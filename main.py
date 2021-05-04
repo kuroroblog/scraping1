@@ -38,9 +38,13 @@ def writeData(shopTitle, shopList, addressList, itemList):
 
 
 def convertData(ws, res):
+    # 一番初めに登場するh1タグのテキストを取得する。
     shopTitle = res.find("h1").text
+    # h3タグ一覧を全て取得する。
     shopList = res.find_all("h3")
+    # addressタグ一覧を全て取得する。
     addressList = res.find_all("address")
+    # divタグでクラス属性がitemsのタグを全て取得する。
     itemList = res.find_all("div", ["items"])
     writeData(shopTitle, shopList, addressList, itemList)
 
@@ -48,7 +52,11 @@ def convertData(ws, res):
 
 
 def resUrl():
+    # URLへリクエストして、WebページのHTML情報を取得する。
+    # 参考 : https://note.nkmk.me/python-requests-usage/
     html = requests.get(URL).text
+    # レスポンスの HTML から BeautifulSoup オブジェクトを作る
+    # 参考 : https://qiita.com/Chanmoro/items/db51658b073acddea4ac
     return BeautifulSoup(html, "html.parser")
 
 
