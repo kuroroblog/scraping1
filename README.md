@@ -3,3 +3,6 @@
 
 # 参考記事
 https://kuroro.blog/python/OPvixl57wEvw9Vv7vyW2/
+
+# 解決課題
+https://teratail.com/questions/336305
